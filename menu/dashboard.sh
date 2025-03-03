@@ -47,7 +47,7 @@ CEKEXPIRED() {
     # Ambil tanggal besok
     today=$(date -d "+1 day" +"%Y-%m-%d")
     # Ambil tanggal kadaluarsa dari URL registrasi (sesuaikan dengan format data)
-    Exp1=$(curl -sS https://raw.githubusercontent.com/tanilink/REGISTER/main/IPVPS | grep "$MYIP" | awk '{print $3}')
+    Exp1=$(curl -sS https://raw.githubusercontent.com/gndcfgndr/REGISTER/main/IPVPS | grep "$MYIP" | awk '{print $3}')
     if [[ "$today" < "$Exp1" ]]; then
         clear
     else
@@ -62,7 +62,7 @@ for dir in /tmp/trojan /tmp/vmess /tmp/vless; do
 done
 
 # Periksa izin/script aktif berdasarkan IP
-IZIN=$(curl -sS https://raw.githubusercontent.com/tanilink/REGISTER/main/IPVPS | awk '{print $4}' | grep "$MYIP")
+IZIN=$(curl -sS https://raw.githubusercontent.com/gndcfgndr/REGISTER/main/IPVPS | awk '{print $4}' | grep "$MYIP")
 if [ "$MYIP" = "$IZIN" ]; then
     CEKEXPIRED
 else
@@ -74,7 +74,7 @@ clear
 
 # Hitung sisa masa aktif sertifikat
 today=$(date -d "0 days" +"%Y-%m-%d")
-Exp2=$(curl -sS https://raw.githubusercontent.com/tanilink/REGISTER/main/IPVPS | grep "$MYIP" | awk '{print $3}')
+Exp2=$(curl -sS https://raw.githubusercontent.com/gndcfgndr/REGISTER/main/IPVPS | grep "$MYIP" | awk '{print $3}')
 if [ "$Exp2" == "lifetime" ]; then
     Exp2="2099-12-09"
 fi
@@ -93,8 +93,8 @@ fi
 
 # Ekspor ulang IP (opsional)
 export MYIP=$(curl -s https://ipinfo.io/ip/)
-Name=$(curl -sS https://raw.githubusercontent.com/tanilink/REGISTER/main/IPVPS | grep "$MYIP" | awk '{print $2}')
-Exp=$(curl -sS https://raw.githubusercontent.com/tanilink/REGISTER/main/IPVPS | grep "$MYIP" | awk '{print $3}')
+Name=$(curl -sS https://raw.githubusercontent.com/gndcfgndr/REGISTER/main/IPVPS | grep "$MYIP" | awk '{print $2}')
+Exp=$(curl -sS https://raw.githubusercontent.com/gndcfgndr/REGISTER/main/IPVPS | grep "$MYIP" | awk '{print $3}')
 clear
 
 # Cek status layanan NGINX

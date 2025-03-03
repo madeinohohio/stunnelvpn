@@ -12,7 +12,7 @@ sleep 0.5
 # Fungsi untuk memeriksa masa aktif script
 CEKEXPIRED() {
     today=$(date -d "+1 day" "+%Y-%m-%d")
-    Exp1=$(curl -sS https://raw.githubusercontent.com/tanilink/REGISTER/main/IPVPS | grep $MYIP | awk '{print $3}')
+    Exp1=$(curl -sS https://raw.githubusercontent.com/gndcfgndr/REGISTER/main/IPVPS | grep $MYIP | awk '{print $3}')
     if [[ $today < $Exp1 ]]; then
         echo -e "Status script aktif."
     else
@@ -22,7 +22,7 @@ CEKEXPIRED() {
 }
 
 # Memeriksa izin IP
-IZIN=$(curl -sS https://raw.githubusercontent.com/tanilink/REGISTER/main/IPVPS | awk '{print $4}' | grep $MYIP)
+IZIN=$(curl -sS https://raw.githubusercontent.com/gndcfgndr/REGISTER/main/IPVPS | awk '{print $4}' | grep $MYIP)
 if [ "$MYIP" = "$IZIN" ]; then
     echo "IZIN DI TERIMA!!"
 else

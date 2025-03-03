@@ -56,7 +56,7 @@ export NC='\033[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 CEKEXPIRED () {
     today=$(date -d +1day +%Y-%m-%d)
-    Exp1=$(curl -sS https://raw.githubusercontent.com/tanilink/REGISTER/main/IPVPS | grep $MYIP | awk '{print $3}')
+    Exp1=$(curl -sS https://raw.githubusercontent.com/gndcfgndr/REGISTER/main/IPVPS | grep $MYIP | awk '{print $3}')
     if [[ $today < $Exp1 ]]; then
 echo -e ""
 clear
@@ -78,7 +78,7 @@ if [ ! -e /tmp/vless ]; then
   mkdir -p /tmp/vless
 fi
 
-IZIN=$(curl -sS https://raw.githubusercontent.com/tanilink/REGISTER/main/IPVPS | awk '{print $4}' | grep $MYIP)
+IZIN=$(curl -sS https://raw.githubusercontent.com/gndcfgndr/REGISTER/main/IPVPS | awk '{print $4}' | grep $MYIP)
 if [ $MYIP = $IZIN ]; then
 #echo "status akun masih aktif"
 CEKEXPIRED 
@@ -91,7 +91,7 @@ fi
 #wget -q -O /root/status "https://raw.githubusercontent.com/tanilink/stunnelvpn/momok/statushariini" 
 clear
 today=`date -d "0 days" +"%Y-%m-%d"`
-Exp2=$(curl -sS https://raw.githubusercontent.com/tanilink/REGISTER/main/IPVPS | grep $MYIP | awk '{print $3}')
+Exp2=$(curl -sS https://raw.githubusercontent.com/gndcfgndr/REGISTER/main/IPVPS | grep $MYIP | awk '{print $3}')
 if [ "$Exp2" == "lifetime" ]; then
     Exp2="2099-12-09"
 fi
@@ -128,8 +128,8 @@ fi
 
 # // Exporting IP Address
 export MYIP=$( curl -s https://ipinfo.io/ip/ )
-Name=$(curl -sS https://raw.githubusercontent.com/tanilink/REGISTER/main/IPVPS | grep $MYIP | awk '{print $2}')
-Exp=$(curl -sS https://raw.githubusercontent.com/tanilink/REGISTER/main/IPVPS | grep $MYIP | awk '{print $3}')
+Name=$(curl -sS https://raw.githubusercontent.com/gndcfgndr/REGISTER/main/IPVPS | grep $MYIP | awk '{print $2}')
+Exp=$(curl -sS https://raw.githubusercontent.com/gndcfgndr/REGISTER/main/IPVPS | grep $MYIP | awk '{print $3}')
 clear
 # // nginx
 nginx=$( systemctl status nginx | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
